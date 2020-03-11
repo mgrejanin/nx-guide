@@ -13,7 +13,6 @@ export class LoginService {
       .post<string>('http://www.mocky.io/v2/5e6566a23100006300239937', data)
       .pipe(
         tap(token => {
-          console.log({ token });
           this.loginState.update({ token, username: data.username });
         })
       );

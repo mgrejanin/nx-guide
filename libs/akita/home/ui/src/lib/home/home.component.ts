@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-akita-home-ui',
@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class AkitaHomeComponent {
   @Input() username: string;
+  @Output() logout = new EventEmitter();
 }
