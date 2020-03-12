@@ -6,11 +6,13 @@ import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
 import { NgxsStoragePluginModule, StorageOption } from '@ngxs/storage-plugin';
 import { NgxsModule } from '@ngxs/store';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(
       [
         { path: '', pathMatch: 'full', redirectTo: '/login' },
@@ -18,6 +20,13 @@ import { AppComponent } from './app.component';
           path: 'login',
           loadChildren: () =>
             import('@nx-guide/ngxs/login/feature').then(
+              module => module.NgxsLoginFeatureModule
+            )
+        },
+        {
+          path: 'home',
+          loadChildren: () =>
+            import('@nx-guide/ngxs/home/feature').then(
               module => module.NgxsLoginFeatureModule
             )
         }

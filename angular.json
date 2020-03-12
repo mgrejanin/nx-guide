@@ -405,11 +405,10 @@
       }
     },
     "akita-home-ui": {
+      "projectType": "library",
       "root": "libs/akita/home/ui",
       "sourceRoot": "libs/akita/home/ui/src",
       "prefix": "nx-guide",
-      "projectType": "library",
-      "schematics": {},
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -426,8 +425,14 @@
           "options": {
             "jestConfig": "libs/akita/home/ui/jest.config.js",
             "tsConfig": "libs/akita/home/ui/tsconfig.spec.json",
-            "passWithNoTests": true
+            "passWithNoTests": true,
+            "setupFile": "libs/akita/home/ui/src/test-setup.ts"
           }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
         }
       }
     },
