@@ -27,7 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
           path: 'home',
           loadChildren: () =>
             import('@nx-guide/ngxs/home/feature').then(
-              module => module.NgxsLoginFeatureModule
+              module => module.NgxsHomeFeatureModule
             )
         }
       ],

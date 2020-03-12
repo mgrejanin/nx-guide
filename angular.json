@@ -462,6 +462,70 @@
           }
         }
       }
+    },
+    "ngxs-home-feature": {
+      "projectType": "library",
+      "root": "libs/ngxs/home/feature",
+      "sourceRoot": "libs/ngxs/home/feature/src",
+      "prefix": "nx-guide",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ngxs/home/feature/tsconfig.lib.json",
+              "libs/ngxs/home/feature/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ngxs/home/feature/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ngxs/home/feature/jest.config.js",
+            "tsConfig": "libs/ngxs/home/feature/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/ngxs/home/feature/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "ngxs-home-ui": {
+      "projectType": "library",
+      "root": "libs/ngxs/home/ui",
+      "sourceRoot": "libs/ngxs/home/ui/src",
+      "prefix": "nx-guide",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ngxs/home/ui/tsconfig.lib.json",
+              "libs/ngxs/home/ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ngxs/home/ui/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ngxs/home/ui/jest.config.js",
+            "tsConfig": "libs/ngxs/home/ui/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/ngxs/home/ui/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {

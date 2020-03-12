@@ -45,6 +45,12 @@
     },
     "akita-home-feature": {
       "tags": ["scope:akita", "type:lib"]
+    },
+    "ngxs-home-feature": {
+      "tags": ["scope:ngxs", "type:lib"]
+    },
+    "ngxs-home-ui": {
+      "tags": ["scope:ngxs", "type:lib"]
     }
   }
 }
