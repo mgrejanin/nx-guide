@@ -5,7 +5,7 @@ import { LoginRestService } from './services/login.rest.service';
 import { LoginState } from './state/login.store';
 
 @NgModule({
-  imports: [CommonModule, NgxsModule.forFeature([LoginState])],
-  providers: [LoginRestService]
+    imports: [CommonModule, NgxsModule.forFeature([LoginState])],
+    providers: [LoginRestService],
 })
 export class NgxsLoginDataAccessModule {}

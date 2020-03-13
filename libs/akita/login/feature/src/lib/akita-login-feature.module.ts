@@ -6,20 +6,17 @@ import { AkitaLoginInputDataFeatureContainer } from './akita-login-feature-input
 import { AkitaLoginFeatureContainer } from './akita-login-feature.container';
 
 @NgModule({
-  declarations: [
-    AkitaLoginFeatureContainer,
-    AkitaLoginInputDataFeatureContainer
-  ],
-  imports: [
-    CommonModule,
-    SharedLoginUiModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: AkitaLoginFeatureContainer,
-        children: [{ path: '', component: AkitaLoginInputDataFeatureContainer }]
-      }
-    ])
-  ]
+    declarations: [AkitaLoginFeatureContainer, AkitaLoginInputDataFeatureContainer],
+    imports: [
+        CommonModule,
+        SharedLoginUiModule,
+        RouterModule.forChild([
+            {
+                path: '',
+                component: AkitaLoginFeatureContainer,
+                children: [{ path: '', component: AkitaLoginInputDataFeatureContainer }],
+            },
+        ]),
+    ],
 })
 export class AkitaLoginFeatureModule {}

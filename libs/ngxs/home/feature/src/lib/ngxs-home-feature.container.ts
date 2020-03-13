@@ -5,16 +5,18 @@ import { LoginState, Logout } from '@nx-guide/ngxs/login/data-access';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'nx-guide-shared-home-feature-container',
-  template: `<nx-guide-home-component [username]='username$ | async' (logout)='logout()'></nx-guide-home-component>`
+    selector: 'nx-guide-shared-home-feature-container',
+    template: `
+        <nx-guide-home-component [username]="username$ | async" (logout)="logout()"></nx-guide-home-component>
+    `,
 })
 export class NgxsHomeFeatureContainer {
-  @Select(LoginState.username)
-  username$: Observable<string>;
+    @Select(LoginState.username)
+    username$: Observable<string>;
 
-  constructor(private store: Store) {}
+    constructor(private store: Store) {}
 
-  logout() {
-    this.store.dispatch(new Logout());
-  }
+    logout() {
+        this.store.dispatch(new Logout());
+    }
 }

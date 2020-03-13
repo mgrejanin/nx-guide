@@ -27,7 +27,7 @@
     "help": "nx help",
     "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
   },
-  "prettier":"picpay-tslint-rules/.prettierrc.json",
+  "prettier": "picpay-tslint-rules/.prettierrc.json",
   "private": true,
   "dependencies": {
     "@angular/animations": "9.0.0",
@@ -45,7 +45,6 @@
     "@ngxs/store": "^3.6.2",
     "@nrwl/angular": "^9.0.4",
     "core-js": "^2.5.4",
-    "picpay-tslint-rules": "^1.0.3",
     "rxjs": "~6.5.0",
     "zone.js": "^0.10.2"
   },
@@ -65,7 +64,7 @@
     "eslint": "6.8.0",
     "jest": "24.9.0",
     "jest-preset-angular": "8.0.0",
-    "prettier": "1.19.1",
+    "picpay-tslint-rules": "^1.0.3",
     "ts-jest": "24.0.0",
     "ts-node": "~7.0.0",
     "tslint": "6.0.0",
