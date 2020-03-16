@@ -6,7 +6,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
     styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-    // Nao posso importar LoginFormModel, porque uma lib compartilhada nao deve depender de uma lib especifica de app
+    // TODO Nao posso importar LoginFormModel, porque uma lib compartilhada nao deve depender de uma lib especifica de app
     formMock: { username: string; password: string } = {
         username: 'mauricio.grejanin@picpay.com',
         password: 'picpay',
