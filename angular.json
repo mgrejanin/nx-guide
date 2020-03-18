@@ -1,544 +1,529 @@
 {
-  "version": 1,
-  "projects": {
-    "akita": {
-      "projectType": "application",
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
-      },
-      "root": "apps/akita",
-      "sourceRoot": "apps/akita/src",
-      "prefix": "nx-guide",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/apps/akita",
-            "index": "apps/akita/src/index.html",
-            "main": "apps/akita/src/main.ts",
-            "polyfills": "apps/akita/src/polyfills.ts",
-            "tsConfig": "apps/akita/tsconfig.app.json",
-            "aot": true,
-            "assets": ["apps/akita/src/favicon.ico", "apps/akita/src/assets"],
-            "styles": ["apps/akita/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/akita/src/environments/environment.ts",
-                  "with": "apps/akita/src/environments/environment.prod.ts"
+    "version": 1,
+    "projects": {
+        "akita": {
+            "projectType": "application",
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "style": "scss"
                 }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+            },
+            "root": "apps/akita",
+            "sourceRoot": "apps/akita/src",
+            "prefix": "nx-guide",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/apps/akita",
+                        "index": "apps/akita/src/index.html",
+                        "main": "apps/akita/src/main.ts",
+                        "polyfills": "apps/akita/src/polyfills.ts",
+                        "tsConfig": "apps/akita/tsconfig.app.json",
+                        "aot": true,
+                        "assets": ["apps/akita/src/favicon.ico", "apps/akita/src/assets"],
+                        "styles": ["apps/akita/src/styles.scss"],
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/akita/src/environments/environment.ts",
+                                    "with": "apps/akita/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ]
+                        }
+                    }
                 },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "akita:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "akita:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "akita:build"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "apps/akita/tsconfig.app.json",
-              "apps/akita/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/akita/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "apps/akita/jest.config.js",
-            "tsConfig": "apps/akita/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "apps/akita/src/test-setup.ts"
-          }
-        }
-      }
-    },
-    "akita-e2e": {
-      "root": "apps/akita-e2e",
-      "sourceRoot": "apps/akita-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/akita-e2e/cypress.json",
-            "tsConfig": "apps/akita-e2e/tsconfig.e2e.json",
-            "devServerTarget": "akita:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "akita:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["apps/akita-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/akita-e2e/**"]
-          }
-        }
-      }
-    },
-    "ngxs": {
-      "projectType": "application",
-      "schematics": {
-        "@nrwl/angular:component": {
-          "style": "scss"
-        }
-      },
-      "root": "apps/ngxs",
-      "sourceRoot": "apps/ngxs/src",
-      "prefix": "nx-guide",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/apps/ngxs",
-            "index": "apps/ngxs/src/index.html",
-            "main": "apps/ngxs/src/main.ts",
-            "polyfills": "apps/ngxs/src/polyfills.ts",
-            "tsConfig": "apps/ngxs/tsconfig.app.json",
-            "aot": true,
-            "assets": ["apps/ngxs/src/favicon.ico", "apps/ngxs/src/assets"],
-            "styles": ["apps/ngxs/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/ngxs/src/environments/environment.ts",
-                  "with": "apps/ngxs/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "akita:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "akita:build:production"
+                        }
+                    }
                 },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "akita:build"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["apps/akita/tsconfig.app.json", "apps/akita/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**", "!apps/akita/**"]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "apps/akita/jest.config.js",
+                        "tsConfig": "apps/akita/tsconfig.spec.json",
+                        "passWithNoTests": true,
+                        "setupFile": "apps/akita/src/test-setup.ts"
+                    }
                 }
-              ]
             }
-          }
         },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "ngxs:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "ngxs:build:production"
+        "akita-e2e": {
+            "root": "apps/akita-e2e",
+            "sourceRoot": "apps/akita-e2e/src",
+            "projectType": "application",
+            "architect": {
+                "e2e": {
+                    "builder": "@nrwl/cypress:cypress",
+                    "options": {
+                        "cypressConfig": "apps/akita-e2e/cypress.json",
+                        "tsConfig": "apps/akita-e2e/tsconfig.e2e.json",
+                        "devServerTarget": "akita:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "akita:serve:production"
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["apps/akita-e2e/tsconfig.e2e.json"],
+                        "exclude": ["**/node_modules/**", "!apps/akita-e2e/**"]
+                    }
+                }
             }
-          }
         },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "ngxs:build"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "apps/ngxs/tsconfig.app.json",
-              "apps/ngxs/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/ngxs/**"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "apps/ngxs/jest.config.js",
-            "tsConfig": "apps/ngxs/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "apps/ngxs/src/test-setup.ts"
-          }
-        }
-      }
-    },
-    "ngxs-e2e": {
-      "root": "apps/ngxs-e2e",
-      "sourceRoot": "apps/ngxs-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/ngxs-e2e/cypress.json",
-            "tsConfig": "apps/ngxs-e2e/tsconfig.e2e.json",
-            "devServerTarget": "ngxs:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "ngxs:serve:production"
+        "ngxs": {
+            "projectType": "application",
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "style": "scss"
+                }
+            },
+            "root": "apps/ngxs",
+            "sourceRoot": "apps/ngxs/src",
+            "prefix": "nx-guide",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/apps/ngxs",
+                        "index": "apps/ngxs/src/index.html",
+                        "main": "apps/ngxs/src/main.ts",
+                        "polyfills": "apps/ngxs/src/polyfills.ts",
+                        "tsConfig": "apps/ngxs/tsconfig.app.json",
+                        "aot": true,
+                        "assets": ["apps/ngxs/src/favicon.ico", "apps/ngxs/src/assets"],
+                        "styles": ["apps/ngxs/src/styles.scss"],
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "apps/ngxs/src/environments/environment.ts",
+                                    "with": "apps/ngxs/src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "6kb",
+                                    "maximumError": "10kb"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "ngxs:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "ngxs:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "ngxs:build"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["apps/ngxs/tsconfig.app.json", "apps/ngxs/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**", "!apps/ngxs/**"]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "apps/ngxs/jest.config.js",
+                        "tsConfig": "apps/ngxs/tsconfig.spec.json",
+                        "passWithNoTests": true,
+                        "setupFile": "apps/ngxs/src/test-setup.ts"
+                    }
+                }
             }
-          }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["apps/ngxs-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/ngxs-e2e/**"]
-          }
-        }
-      }
-    },
-    "akita-login-data-access": {
-      "projectType": "library",
-      "root": "libs/akita/login/data-access",
-      "sourceRoot": "libs/akita/login/data-access/src",
-      "prefix": "nx-guide",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/akita/login/data-access/tsconfig.lib.json",
-              "libs/akita/login/data-access/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/akita/login/data-access/**"
-            ]
-          }
+        "ngxs-e2e": {
+            "root": "apps/ngxs-e2e",
+            "sourceRoot": "apps/ngxs-e2e/src",
+            "projectType": "application",
+            "architect": {
+                "e2e": {
+                    "builder": "@nrwl/cypress:cypress",
+                    "options": {
+                        "cypressConfig": "apps/ngxs-e2e/cypress.json",
+                        "tsConfig": "apps/ngxs-e2e/tsconfig.e2e.json",
+                        "devServerTarget": "ngxs:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "ngxs:serve:production"
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["apps/ngxs-e2e/tsconfig.e2e.json"],
+                        "exclude": ["**/node_modules/**", "!apps/ngxs-e2e/**"]
+                    }
+                }
+            }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/akita/login/data-access/jest.config.js",
-            "tsConfig": "libs/akita/login/data-access/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/akita/login/data-access/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
-    "ngxs-login-data-access": {
-      "projectType": "library",
-      "root": "libs/ngxs/login/data-access",
-      "sourceRoot": "libs/ngxs/login/data-access/src",
-      "prefix": "nx-guide",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/ngxs/login/data-access/tsconfig.lib.json",
-              "libs/ngxs/login/data-access/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/ngxs/login/data-access/**"]
-          }
+        "akita-login-data-access": {
+            "projectType": "library",
+            "root": "libs/akita/login/data-access",
+            "sourceRoot": "libs/akita/login/data-access/src",
+            "prefix": "nx-guide",
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/akita/login/data-access/tsconfig.lib.json",
+                            "libs/akita/login/data-access/tsconfig.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**", "!libs/akita/login/data-access/**"]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/akita/login/data-access/jest.config.js",
+                        "tsConfig": "libs/akita/login/data-access/tsconfig.spec.json",
+                        "passWithNoTests": true,
+                        "setupFile": "libs/akita/login/data-access/src/test-setup.ts"
+                    }
+                }
+            },
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "styleext": "scss"
+                }
+            }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ngxs/login/data-access/jest.config.js",
-            "tsConfig": "libs/ngxs/login/data-access/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ngxs/login/data-access/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
-    "ngxs-login-feature": {
-      "projectType": "library",
-      "root": "libs/ngxs/login/feature",
-      "sourceRoot": "libs/ngxs/login/feature/src",
-      "prefix": "nx-guide",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/ngxs/login/feature/tsconfig.lib.json",
-              "libs/ngxs/login/feature/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/ngxs/login/feature/**"]
-          }
+        "ngxs-login-data-access": {
+            "projectType": "library",
+            "root": "libs/ngxs/login/data-access",
+            "sourceRoot": "libs/ngxs/login/data-access/src",
+            "prefix": "nx-guide",
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/ngxs/login/data-access/tsconfig.lib.json",
+                            "libs/ngxs/login/data-access/tsconfig.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**", "!libs/ngxs/login/data-access/**"]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/ngxs/login/data-access/jest.config.js",
+                        "tsConfig": "libs/ngxs/login/data-access/tsconfig.spec.json",
+                        "passWithNoTests": true,
+                        "setupFile": "libs/ngxs/login/data-access/src/test-setup.ts"
+                    }
+                }
+            },
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "styleext": "scss"
+                }
+            }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ngxs/login/feature/jest.config.js",
-            "tsConfig": "libs/ngxs/login/feature/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ngxs/login/feature/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
-    "akita-login-feature": {
-      "projectType": "library",
-      "root": "libs/akita/login/feature",
-      "sourceRoot": "libs/akita/login/feature/src",
-      "prefix": "nx-guide",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/akita/login/feature/tsconfig.lib.json",
-              "libs/akita/login/feature/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/akita/login/feature/**"]
-          }
+        "ngxs-login-feature": {
+            "projectType": "library",
+            "root": "libs/ngxs/login/feature",
+            "sourceRoot": "libs/ngxs/login/feature/src",
+            "prefix": "nx-guide",
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/ngxs/login/feature/tsconfig.lib.json",
+                            "libs/ngxs/login/feature/tsconfig.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**", "!libs/ngxs/login/feature/**"]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/ngxs/login/feature/jest.config.js",
+                        "tsConfig": "libs/ngxs/login/feature/tsconfig.spec.json",
+                        "passWithNoTests": true,
+                        "setupFile": "libs/ngxs/login/feature/src/test-setup.ts"
+                    }
+                }
+            },
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "styleext": "scss"
+                }
+            }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/akita/login/feature/jest.config.js",
-            "tsConfig": "libs/akita/login/feature/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/akita/login/feature/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
-    "shared-login-ui": {
-      "projectType": "library",
-      "root": "libs/shared/login/ui",
-      "sourceRoot": "libs/shared/login/ui/src",
-      "prefix": "nx-guide",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/shared/login/ui/tsconfig.lib.json",
-              "libs/shared/login/ui/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/shared/login/ui/**"]
-          }
+        "akita-login-feature": {
+            "projectType": "library",
+            "root": "libs/akita/login/feature",
+            "sourceRoot": "libs/akita/login/feature/src",
+            "prefix": "nx-guide",
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/akita/login/feature/tsconfig.lib.json",
+                            "libs/akita/login/feature/tsconfig.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**", "!libs/akita/login/feature/**"]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/akita/login/feature/jest.config.js",
+                        "tsConfig": "libs/akita/login/feature/tsconfig.spec.json",
+                        "passWithNoTests": true,
+                        "setupFile": "libs/akita/login/feature/src/test-setup.ts"
+                    }
+                }
+            },
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "styleext": "scss"
+                }
+            }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/login/ui/jest.config.js",
-            "tsConfig": "libs/shared/login/ui/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/shared/login/ui/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
-    "akita-home-ui": {
-      "projectType": "library",
-      "root": "libs/akita/home/ui",
-      "sourceRoot": "libs/akita/home/ui/src",
-      "prefix": "nx-guide",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/akita/home/ui/tsconfig.lib.json",
-              "libs/akita/home/ui/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/akita/home/ui/**"]
-          }
+        "shared-login-ui": {
+            "projectType": "library",
+            "root": "libs/shared/login/ui",
+            "sourceRoot": "libs/shared/login/ui/src",
+            "prefix": "nx-guide",
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/shared/login/ui/tsconfig.lib.json",
+                            "libs/shared/login/ui/tsconfig.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**", "!libs/shared/login/ui/**"]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/shared/login/ui/jest.config.js",
+                        "tsConfig": "libs/shared/login/ui/tsconfig.spec.json",
+                        "passWithNoTests": true,
+                        "setupFile": "libs/shared/login/ui/src/test-setup.ts"
+                    }
+                }
+            },
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "styleext": "scss"
+                }
+            }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/akita/home/ui/jest.config.js",
-            "tsConfig": "libs/akita/home/ui/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/akita/home/ui/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
-    "akita-home-feature": {
-      "root": "libs/akita/home/feature",
-      "sourceRoot": "libs/akita/home/feature/src",
-      "projectType": "library",
-      "prefix": "nx-guide",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/akita/home/feature/tsconfig.lib.json",
-              "libs/akita/home/feature/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/akita/home/feature/**"]
-          }
+        "akita-home-ui": {
+            "projectType": "library",
+            "root": "libs/akita/home/ui",
+            "sourceRoot": "libs/akita/home/ui/src",
+            "prefix": "nx-guide",
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["libs/akita/home/ui/tsconfig.lib.json", "libs/akita/home/ui/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**", "!libs/akita/home/ui/**"]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/akita/home/ui/jest.config.js",
+                        "tsConfig": "libs/akita/home/ui/tsconfig.spec.json",
+                        "passWithNoTests": true,
+                        "setupFile": "libs/akita/home/ui/src/test-setup.ts"
+                    }
+                }
+            },
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "styleext": "scss"
+                }
+            }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/akita/home/feature/jest.config.js",
-            "tsConfig": "libs/akita/home/feature/tsconfig.spec.json",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "ngxs-home-feature": {
-      "projectType": "library",
-      "root": "libs/ngxs/home/feature",
-      "sourceRoot": "libs/ngxs/home/feature/src",
-      "prefix": "nx-guide",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/ngxs/home/feature/tsconfig.lib.json",
-              "libs/ngxs/home/feature/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/ngxs/home/feature/**"]
-          }
+        "akita-home-feature": {
+            "root": "libs/akita/home/feature",
+            "sourceRoot": "libs/akita/home/feature/src",
+            "projectType": "library",
+            "prefix": "nx-guide",
+            "schematics": {},
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/akita/home/feature/tsconfig.lib.json",
+                            "libs/akita/home/feature/tsconfig.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**", "!libs/akita/home/feature/**"]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/akita/home/feature/jest.config.js",
+                        "tsConfig": "libs/akita/home/feature/tsconfig.spec.json",
+                        "passWithNoTests": true
+                    }
+                }
+            }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ngxs/home/feature/jest.config.js",
-            "tsConfig": "libs/ngxs/home/feature/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ngxs/home/feature/src/test-setup.ts"
-          }
-        }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    },
-    "ngxs-home-ui": {
-      "projectType": "library",
-      "root": "libs/ngxs/home/ui",
-      "sourceRoot": "libs/ngxs/home/ui/src",
-      "prefix": "nx-guide",
-      "architect": {
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "libs/ngxs/home/ui/tsconfig.lib.json",
-              "libs/ngxs/home/ui/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!libs/ngxs/home/ui/**"]
-          }
+        "ngxs-home-feature": {
+            "projectType": "library",
+            "root": "libs/ngxs/home/feature",
+            "sourceRoot": "libs/ngxs/home/feature/src",
+            "prefix": "nx-guide",
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/ngxs/home/feature/tsconfig.lib.json",
+                            "libs/ngxs/home/feature/tsconfig.spec.json"
+                        ],
+                        "exclude": ["**/node_modules/**", "!libs/ngxs/home/feature/**"]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/ngxs/home/feature/jest.config.js",
+                        "tsConfig": "libs/ngxs/home/feature/tsconfig.spec.json",
+                        "passWithNoTests": true,
+                        "setupFile": "libs/ngxs/home/feature/src/test-setup.ts"
+                    }
+                }
+            },
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "styleext": "scss"
+                }
+            }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ngxs/home/ui/jest.config.js",
-            "tsConfig": "libs/ngxs/home/ui/tsconfig.spec.json",
-            "passWithNoTests": true,
-            "setupFile": "libs/ngxs/home/ui/src/test-setup.ts"
-          }
+        "ngxs-home-ui": {
+            "projectType": "library",
+            "root": "libs/ngxs/home/ui",
+            "sourceRoot": "libs/ngxs/home/ui/src",
+            "prefix": "nx-guide",
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": ["libs/ngxs/home/ui/tsconfig.lib.json", "libs/ngxs/home/ui/tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**", "!libs/ngxs/home/ui/**"]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/ngxs/home/ui/jest.config.js",
+                        "tsConfig": "libs/ngxs/home/ui/tsconfig.spec.json",
+                        "passWithNoTests": true,
+                        "setupFile": "libs/ngxs/home/ui/src/test-setup.ts"
+                    }
+                }
+            },
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "styleext": "scss"
+                }
+            }
         }
-      },
-      "schematics": {
-        "@nrwl/angular:component": {
-          "styleext": "scss"
-        }
-      }
-    }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
-  "schematics": {
-    "@nrwl/angular:application": {
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
     },
-    "@nrwl/angular:library": {
-      "unitTestRunner": "jest"
-    }
-  },
-  "defaultProject": "akita"
+    "cli": {
+        "defaultCollection": "@nrwl/angular"
+    },
+    "schematics": {
+        "@nrwl/angular:application": {
+            "unitTestRunner": "jest",
+            "e2eTestRunner": "cypress"
+        },
+        "@nrwl/angular:library": {
+            "unitTestRunner": "jest"
+        }
+    },
+    "defaultProject": "akita"
 }

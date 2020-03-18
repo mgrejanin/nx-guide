@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
         <nx-guide-home-component [username]="username$ | async" (logout)="logout()"></nx-guide-home-component>
     `,
 })
-export class NgxsHomeFeatureContainer {
+export class NgxsHomeFeatureComponent {
     @Select(LoginState.username)
     username$: Observable<string>;
 

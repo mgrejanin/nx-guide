@@ -9,7 +9,7 @@ import { tap } from 'rxjs/operators';
         <nx-guide-login-ui (login)="login($event)"></nx-guide-login-ui>
     `,
 })
-export class NgxsLoginFeatureContainer {
+export class NgxsLoginFeatureComponent {
     constructor(private store: Store) {}
 
     login(data: LoginFormModel) {

@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AkitaHomeUiModule } from '@nx-guide/akita/home/ui';
 import { SharedLoginUiModule } from '@nx-guide/shared/login/ui';
-import { AkitaHomeFeatureContainer } from './akita-home-feature.container';
+import { AkitaHomeFeatureComponent } from './akita-home-feature.container';
 
 @NgModule({
-    declarations: [AkitaHomeFeatureContainer],
+    declarations: [AkitaHomeFeatureComponent],
     imports: [
         CommonModule,
         SharedLoginUiModule,
@@ -14,7 +14,7 @@ import { AkitaHomeFeatureContainer } from './akita-home-feature.container';
         RouterModule.forChild([
             {
                 path: '',
-                component: AkitaHomeFeatureContainer,
+                component: AkitaHomeFeatureComponent,
             },
         ]),
     ],

@@ -10,7 +10,7 @@ import { catchError, tap } from 'rxjs/operators';
         <app-akita-home-ui [username]="username$ | async" (logout)="logout()"></app-akita-home-ui>
     `,
 })
-export class AkitaHomeFeatureContainer implements OnInit {
+export class AkitaHomeFeatureComponent implements OnInit {
     username$: Observable<string>;
 
     constructor(private loginQuery: LoginQuery, private loginService: LoginService, private router: Router) {}

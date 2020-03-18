@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgxsLoginDataAccessModule } from '@nx-guide/ngxs/login/data-access';
 import { SharedLoginUiModule } from '@nx-guide/shared/login/ui';
-import { NgxsLoginFeatureContainer } from './ngxs-login-feature.container';
+import { NgxsLoginFeatureComponent } from './ngxs-login-feature.container';
 
 @NgModule({
-    declarations: [NgxsLoginFeatureContainer],
+    declarations: [NgxsLoginFeatureComponent],
     imports: [
         SharedLoginUiModule,
         CommonModule,
         NgxsLoginDataAccessModule,
-        RouterModule.forChild([{ path: '', component: NgxsLoginFeatureContainer }]),
+        RouterModule.forChild([{ path: '', component: NgxsLoginFeatureComponent }]),
     ],
 })
 export class NgxsLoginFeatureModule {}

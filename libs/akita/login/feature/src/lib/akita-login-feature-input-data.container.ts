@@ -9,7 +9,7 @@ import { catchError, tap } from 'rxjs/operators';
         <nx-guide-login-ui (login)="login($event)"></nx-guide-login-ui>
     `,
 })
-export class AkitaLoginInputDataFeatureContainer {
+export class AkitaLoginInputDataFeatureComponent {
     constructor(private loginService: LoginService, private router: Router) {}
 
     login(data: LoginFormModel) {

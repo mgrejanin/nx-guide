@@ -2,17 +2,17 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgxsHomeUiModule } from '@nx-guide/ngxs/home/ui';
-import { NgxsHomeFeatureContainer } from './ngxs-home-feature.container';
+import { NgxsHomeFeatureComponent } from './ngxs-home-feature.container';
 
 @NgModule({
-    declarations: [NgxsHomeFeatureContainer],
+    declarations: [NgxsHomeFeatureComponent],
     imports: [
         CommonModule,
         NgxsHomeUiModule,
         RouterModule.forChild([
             {
                 path: '',
-                component: NgxsHomeFeatureContainer,
+                component: NgxsHomeFeatureComponent,
                 // canActivate: [AuthGuard]
             },
         ]),
