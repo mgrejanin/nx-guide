@@ -25,7 +25,15 @@
         "workspace-schematic": "nx workspace-schematic",
         "dep-graph": "nx dep-graph",
         "help": "nx help",
-        "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
+        "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
+        "lint:ts": "tslint -p tsconfig.json -t verbose",
+        "lint:ts-fix": "tslint --fix -p tsconfig.json -t verbose"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "nx format:write --all && npm run lint:ts-fix && npm run test",
+            "post-merge": "nx format:write --all && npm run lint:ts-fix && npm run test"
+        }
     },
     "prettier": "picpay-tslint-rules/.prettierrc.json",
     "private": true,
