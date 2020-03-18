@@ -1,31 +1,31 @@
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-        "rootDir": ".",
-        "sourceMap": true,
-        "declaration": false,
-        "moduleResolution": "node",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "importHelpers": true,
-        "target": "es2015",
-        "module": "esnext",
-        "typeRoots": ["node_modules/@types"],
-        "lib": ["es2017", "dom"],
-        "skipLibCheck": true,
-        "skipDefaultLibCheck": true,
-        "baseUrl": ".",
-        "paths": {
-            "@nx-guide/akita/login/data-access": ["libs/akita/login/data-access/src/index.ts"],
-            "@nx-guide/ngxs/login/data-access": ["libs/ngxs/login/data-access/src/index.ts"],
-            "@nx-guide/ngxs/login/feature": ["libs/ngxs/login/feature/src/index.ts"],
-            "@nx-guide/akita/login/feature": ["libs/akita/login/feature/src/index.ts"],
-            "@nx-guide/shared/login/ui": ["libs/shared/login/ui/src/index.ts"],
-            "@nx-guide/akita/home/ui": ["libs/akita/home/ui/src/index.ts"],
-            "@nx-guide/akita/home/feature": ["libs/akita/home/feature/src/index.ts"],
-            "@nx-guide/ngxs/home/feature": ["libs/ngxs/home/feature/src/index.ts"],
-            "@nx-guide/ngxs/home/ui": ["libs/ngxs/home/ui/src/index.ts"]
-        }
-    },
-    "exclude": ["node_modules", "tmp"]
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@nx-guide/akita/login/data-access": ["libs/akita/login/data-access/src/index.ts"],
+      "@nx-guide/ngxs/login/data-access": ["libs/ngxs/login/data-access/src/index.ts"],
+      "@nx-guide/ngxs/login/feature": ["libs/ngxs/login/feature/src/index.ts"],
+      "@nx-guide/akita/login/feature": ["libs/akita/login/feature/src/index.ts"],
+      "@nx-guide/shared/login/ui": ["libs/shared/login/ui/src/index.ts"],
+      "@nx-guide/akita/home/ui": ["libs/akita/home/ui/src/index.ts"],
+      "@nx-guide/akita/home/feature": ["libs/akita/home/feature/src/index.ts"],
+      "@nx-guide/ngxs/home/feature": ["libs/ngxs/home/feature/src/index.ts"],
+      "@nx-guide/ngxs/home/ui": ["libs/ngxs/home/ui/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
 }

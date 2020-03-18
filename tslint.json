@@ -1,6 +1,6 @@
 {
-    "extends": "picpay-tslint-rules",
-    "rules": {
-        "no-parameter-reassignment": false
-    }
+  "extends": "picpay-tslint-rules",
+  "rules": {
+    "no-parameter-reassignment": false
+  }
 }
