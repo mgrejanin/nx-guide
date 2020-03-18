@@ -6,17 +6,17 @@ import { SharedLoginUiModule } from '@nx-guide/shared/login/ui';
 import { AkitaHomeFeatureComponent } from './akita-home-feature.container';
 
 @NgModule({
-    declarations: [AkitaHomeFeatureComponent],
-    imports: [
-        CommonModule,
-        SharedLoginUiModule,
-        AkitaHomeUiModule,
-        RouterModule.forChild([
-            {
-                path: '',
-                component: AkitaHomeFeatureComponent,
-            },
-        ]),
-    ],
+  declarations: [AkitaHomeFeatureComponent],
+  imports: [
+    CommonModule,
+    SharedLoginUiModule,
+    AkitaHomeUiModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: AkitaHomeFeatureComponent,
+      },
+    ]),
+  ],
 })
 export class AkitaHomeFeatureModule {}

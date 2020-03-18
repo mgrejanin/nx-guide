@@ -5,7 +5,7 @@ import { createLoginInitialState, LoginStateModel } from './login.model';
 @Injectable({ providedIn: 'root' })
 @StoreConfig({ name: 'login' })
 export class LoginState extends Store<LoginStateModel> {
-    constructor() {
-        super(createLoginInitialState());
-    }
+  constructor() {
+    super(createLoginInitialState());
+  }
 }
