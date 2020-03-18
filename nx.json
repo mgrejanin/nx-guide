@@ -1,56 +1,56 @@
 {
-  "npmScope": "nx-guide",
-  "implicitDependencies": {
-    "angular.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
+    "npmScope": "nx-guide",
+    "implicitDependencies": {
+        "angular.json": "*",
+        "package.json": {
+            "dependencies": "*",
+            "devDependencies": "*"
+        },
+        "tsconfig.json": "*",
+        "tslint.json": "*",
+        "nx.json": "*"
     },
-    "tsconfig.json": "*",
-    "tslint.json": "*",
-    "nx.json": "*"
-  },
-  "projects": {
-    "akita": {
-      "tags": []
-    },
-    "akita-e2e": {
-      "tags": [],
-      "implicitDependencies": ["akita"]
-    },
-    "ngxs": {
-      "tags": []
-    },
-    "ngxs-e2e": {
-      "tags": [],
-      "implicitDependencies": ["ngxs"]
-    },
-    "akita-login-data-access": {
-      "tags": ["scope:akita", "type:lib"]
-    },
-    "ngxs-login-data-access": {
-      "tags": ["scope:akita", "type:lib"]
-    },
-    "ngxs-login-feature": {
-      "tags": ["scope:akita", "type:lib"]
-    },
-    "akita-login-feature": {
-      "tags": ["scope:akita", "type:lib"]
-    },
-    "shared-login-ui": {
-      "tags": ["scope:shared", "type:lib"]
-    },
-    "akita-home-ui": {
-      "tags": ["scope:akita", "type:lib"]
-    },
-    "akita-home-feature": {
-      "tags": ["scope:akita", "type:lib"]
-    },
-    "ngxs-home-feature": {
-      "tags": ["scope:ngxs", "type:lib"]
-    },
-    "ngxs-home-ui": {
-      "tags": ["scope:ngxs", "type:lib"]
+    "projects": {
+        "akita": {
+            "tags": []
+        },
+        "akita-e2e": {
+            "tags": [],
+            "implicitDependencies": ["akita"]
+        },
+        "ngxs": {
+            "tags": []
+        },
+        "ngxs-e2e": {
+            "tags": [],
+            "implicitDependencies": ["ngxs"]
+        },
+        "akita-login-data-access": {
+            "tags": ["scope:akita", "type:lib"]
+        },
+        "ngxs-login-data-access": {
+            "tags": ["scope:akita", "type:lib"]
+        },
+        "ngxs-login-feature": {
+            "tags": ["scope:akita", "type:lib"]
+        },
+        "akita-login-feature": {
+            "tags": ["scope:akita", "type:lib"]
+        },
+        "shared-login-ui": {
+            "tags": ["scope:shared", "type:lib"]
+        },
+        "akita-home-ui": {
+            "tags": ["scope:akita", "type:lib"]
+        },
+        "akita-home-feature": {
+            "tags": ["scope:akita", "type:lib"]
+        },
+        "ngxs-home-feature": {
+            "tags": ["scope:ngxs", "type:lib"]
+        },
+        "ngxs-home-ui": {
+            "tags": ["scope:ngxs", "type:lib"]
+        }
     }
-  }
 }
